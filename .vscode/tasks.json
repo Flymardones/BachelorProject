@@ -1,0 +1,34 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "./",
+                "--parallel 32",
+                "--target ${input:build_target}"
+            ],
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceRoot}/build"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "build_target",
+            "description": "build_target",
+            "options": ["all", "atinity25", "esp32", "greenpak", "cob", "stm8", "stm32", "lattice_spld"],
+            "default": "all",
+            "type": "pickString",
+        },
+        
+    ]
+}

@@ -1,5 +1,15 @@
-cmake_minimum_required(VERSION 3.16.3)
-enable_language(CXX C ASM)
+cmake_minimum_required(VERSION 3.0.0)
+project(BachelorProject VERSION 0.1.0 LANGUAGES C)
+
+include(CTest)
+enable_testing()
+
+add_executable(BachelorProject src/main.c)
+
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)
+
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS ON)
@@ -23,41 +33,44 @@ set(BUILD_TARGET_TYPES
     TARGET_LATTICESPLD=${LATTICESPLD_BUILD_TARGET}
 )
 
-set(PROJECT_NAME "BachelorProject")
-project(${PROJECT_NAME})
-
 set(BUILD_TARGET_CHOICE "ALL" CACHE STRING "Option to build a single target or everything (ALL, ATINITY25, ESP32, GREENPAK, STM8, STM32, COB, LATTICE SPLD)")
 message(STATUS "BUILD_TARGET_CHOICE ${BUILD_TARGET_CHOICE}")
 
 if(${BUILD_TARGET_CHOICE} STREQUAL "ALL" OR ${BUILD_TARGET_CHOICE} STREQUAL "ATINITY25")
     message(STATUS "Building ATINITY25")
 
-    
+    add_executable(ATINITY25 MCUs/Atinity25/main_atinity.c)
 
 endif()
 if(${BUILD_TARGET_CHOICE} STREQUAL "ALL" OR ${BUILD_TARGET_CHOICE} STREQUAL "ESP32")
     message(STATUS "Building EPS32")
 
-    
+    add_executable(ESP32 MCUs/ESP32/main_esp.c)
 
 endif()
 if(${BUILD_TARGET_CHOICE} STREQUAL "ALL" OR ${BUILD_TARGET_CHOICE} STREQUAL "GREENPAK")
     message(STATUS "Building GREENPAK")
 
+    add_executable(GREENPAK MCUs/Greenpak/main_greenpak.c)
 endif()
 if(${BUILD_TARGET_CHOICE} STREQUAL "ALL" OR ${BUILD_TARGET_CHOICE} STREQUAL "COB")
     message(STATUS "Building COB")
 
+    add_executable(COB MCUs/Cob/main_cob.c)
 endif()
 if(${BUILD_TARGET_CHOICE} STREQUAL "ALL" OR ${BUILD_TARGET_CHOICE} STREQUAL "STM8")
     message(STATUS "Building STM8")
 
+    add_executable(STM8 MCUs/STM8/main_stm8.c)
 endif()
 if(${BUILD_TARGET_CHOICE} STREQUAL "ALL" OR ${BUILD_TARGET_CHOICE} STREQUAL "STM32")
     message(STATUS "Building STM32")
 
+    add_executable(STM32 MCUs/STM32/main_stm32.c)
 endif()
 if(${BUILD_TARGET_CHOICE} STREQUAL "ALL" OR ${BUILD_TARGET_CHOICE} STREQUAL "LATTICE SPLD")
     message(STATUS "Building LATTICE SPLD")
+
+    add_executable(LATTICE_SPLD MCUs/Lattice_SPLD/main_lattice.c)
 
 endif()
