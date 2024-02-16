@@ -1,2 +1,0 @@
-C:/Users/CMA/BachelorProject/build/CMakeFiles/edit_cache.dir
-C:/Users/CMA/BachelorProject/build/CMakeFiles/rebuild_cache.dir
