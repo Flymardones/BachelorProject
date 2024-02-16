@@ -1,0 +1,45 @@
+{
+    "configurations": [
+        {
+            "name": "ARM_GCC_Windows",
+            "intelliSenseMode": "windows-gcc-arm",
+            "includePath": [
+                "${workspaceFolder}"
+            ],
+            "compilerPath": "${env:ICE_TOOLCHAIN}/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gdb.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            }
+        },
+        {
+            "name": "ARM_GCC_LINUX",
+            "intelliSenseMode": "linux-gcc-arm",
+            "includePath": [
+                "${workspaceFolder}"
+            ],
+            "compilerPath": "${env:ICE_TOOLCHAIN}/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gdb",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            }
+        },
+        {
+            "name": "CMake",
+            "compilerPath": "${env:ICE_TOOLCHAIN}/gcc/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gdb",
+            "compileCommands": "${config:cmake.buildDirectory}/compile_commands.json",
+            "configurationProvider": "ms-vscode.cmake-tools"
+        }
+    ],
+    "version": 4
+}
